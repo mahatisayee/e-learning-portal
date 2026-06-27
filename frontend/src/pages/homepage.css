@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+}
+.main-content{
+    display: flex;
+}
+.column-box {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 3rem 1rem;
+  padding: 30px;
+  flex:1; 
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 70px;
+     width: 95%;
+    
+}
+.row-box{
+    display: flex; 
+    flex-direction: row;
+}
+.App-container{
+display: flex;
+flex-direction: column;
+}
+.pagination{
+  display: flex;
+  justify-content: end;
+  margin: 1rem;
+}
+.pagination span{
+  margin:1rem;
+ font-size:20px;
+}
+.pagination button{
+  width:82px;
+}
+ .rt{
+  display: flex;
+  justify-content: center;
+}
+@media (max-width:1024px)  {
+.column-box {
+  grid-template-columns: repeat(3,1fr);
+
+}
+}
+@media (max-width:820px)  {
+.column-box {
+  grid-template-columns: repeat(2,1fr);
+
+}
+}
+@media (max-width:624px) {
+.column-box {
+  grid-template-columns: repeat(1,1fr);
+
+}
+}

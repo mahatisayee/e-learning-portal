@@ -1,0 +1,32 @@
+.homepage-content {
+  display: flex;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap:1rem;
+  width: 180px;
+  min-height: calc(100vh - 80px);
+  border-right: 1px solid #ddd;
+  padding: 1rem;
+  font-size:15px;
+        position: fixed;
+    top: 70px;
+    left: 0px;
+    box-sizing: border-box;
+    z-index: 20;
+    background-color: white;
+}
+.options{
+padding: 2px;
+     border-radius: 3px;
+}
+.options:hover{
+     border: 1px solid #d8d5d5;
+    }
+@media (max-width:786px) {
+  .sidebar{
+    display: none;
+  }
+}
