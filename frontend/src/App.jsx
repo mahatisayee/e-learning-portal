@@ -1,4 +1,4 @@
-import {Routes,Route} from 'react-router';
+import {Routes,Route} from 'react-router-dom';
 import './App.css';
 import { Navigate } from "react-router-dom";
 import Register from './pages/register';
