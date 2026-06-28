@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import CourseReviews from "../components/courseReviews"; 
 const CourseDetails = () => {
   const { id } = useParams();
-
+  const API = import.meta.env.VITE_API_URL;
   const [course, setCourse] = useState(null);
   const [loading, setLoading] = useState(true);
   const [enrolled, setEnrolled] = useState(false);
@@ -16,7 +16,7 @@ useEffect(() => {
      console.log("Checking enrollment...");
     try {
       const res = await fetch(
-        `http://localhost:5000/enrollments/checkenrollment/${id}`,
+        `${API}/enrollments/checkenrollment/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -41,7 +41,7 @@ useEffect(() => {
   const fetchCourse = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/courses/getCourse/${id}`
+        `${API}/courses/getCourse/${id}`
       );
 
       const data = await response.json();
@@ -86,7 +86,7 @@ useEffect(() => {
 // };
 
 const HandlePayment=async()=>{
-  const res= await fetch("http://localhost:5000/payment/create-order",{
+  const res= await fetch(`${API}/payment/create-order`,{
    method:"POST",
    headers:{
      "Content-Type": "application/json",
@@ -116,7 +116,7 @@ const HandlePayment=async()=>{
     handler: async function (response) {
   console.log(response);
 
-  const verify=await fetch("http://localhost:5000/payment/verify", {
+  const verify=await fetch(`${API}:5000/payment/verify`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

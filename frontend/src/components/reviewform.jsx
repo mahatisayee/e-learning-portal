@@ -1,7 +1,7 @@
 import {useState,useEffect} from 'react';
 import './reviewform.css';
 const  ReviewForm=({courseId,onReviewAdded,reviewToEdit,setEditing})=>{
-
+const API = import.meta.env.VITE_API_URL;
 const [rating, setRating] = useState(0);
 const [comment, setComment] = useState("");
 const token = localStorage.getItem("token");
@@ -18,8 +18,8 @@ const submitReview = async () => {
   try {
 
    const url = reviewToEdit
-  ? `http://localhost:5000/reviews/updateReview/${courseId}`
-  : `http://localhost:5000/reviews/giveReview/${courseId}`;
+  ? `${API}/reviews/updateReview/${courseId}`
+  : `${API}/reviews/giveReview/${courseId}`;
 
 const method = reviewToEdit ? "PUT" : "POST";
 

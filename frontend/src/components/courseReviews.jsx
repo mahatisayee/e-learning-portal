@@ -4,7 +4,7 @@ import ReviewCard from "./reviewcard";
 import './courseReviews.css'
 
 const CourseReviews = ({ courseId }) => {
-
+   const API = import.meta.env.VITE_API_URL;
   const [reviews, setReviews] = useState([]);
   const [editing, setEditing] = useState(false);
   const currentUser = JSON.parse(
@@ -19,7 +19,7 @@ const CourseReviews = ({ courseId }) => {
   const getReviews = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/reviews/getReviews/${courseId}`
+        `${API}/reviews/getReviews/${courseId}`
       );
 
       const data = await response.json();
@@ -34,7 +34,7 @@ const CourseReviews = ({ courseId }) => {
     const getReview = async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/reviews/getReviews/${courseId}`
+          `${API}/reviews/getReviews/${courseId}`
         );
 
         const val = await res.json();
@@ -57,7 +57,7 @@ const CourseReviews = ({ courseId }) => {
       const token = localStorage.getItem("token");
 
       await fetch(
-        `http://localhost:5000/reviews/deleteReview/${courseId}`,
+        `${API}/reviews/deleteReview/${courseId}`,
         {
           method: "DELETE",
           headers: {

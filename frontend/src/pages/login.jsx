@@ -3,7 +3,7 @@ import './login.css';
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 const Login=()=>{
-
+const API = import.meta.env.VITE_API_URL;
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 const navigate = useNavigate();
@@ -15,7 +15,7 @@ const handleSubmit = async (e) => {
 
   try {
     const response = await fetch(
-      "http://localhost:5000/auth/login",
+      `${API}/auth/login`,
       {
         method: "POST",
         headers: {

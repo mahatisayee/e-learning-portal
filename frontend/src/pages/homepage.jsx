@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import "./homepage.css";
 
 const Homepage = () => {
+  const API = import.meta.env.VITE_API_URL;
   const [courses, setCourses] = useState([]);
 
   // Search box text
@@ -26,7 +27,7 @@ const Homepage = () => {
         // CHANGED: send page and search to backend
        
         const response = await fetch(
-          `http://localhost:5000/courses/getCourses?page=${page}&limit=6&search=${encodeURIComponent(search)}`
+          `${API}/courses/getCourses?page=${page}&limit=6&search=${encodeURIComponent(search)}`
         );
 
         const data = await response.json();

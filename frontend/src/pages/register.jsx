@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 const Register=()=>{
 
-
+const API = import.meta.env.VITE_API_URL;
 const [name, setname] = useState("");
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
@@ -23,7 +23,7 @@ const handleSubmit = async (e) => {
   role
 });
     const response = await fetch(
-      "http://localhost:5000/auth/register",
+      `${API}/auth/register`,
       {
         method: "POST",
         headers: {
