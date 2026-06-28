@@ -7,6 +7,7 @@ import "./homepage.css";
 
 const Homepage = () => {
   const API = import.meta.env.VITE_API_URL;
+  const LIMIT = 12;
   const [courses, setCourses] = useState([]);
 
   // Search box text
@@ -27,7 +28,7 @@ const Homepage = () => {
         // CHANGED: send page and search to backend
        
         const response = await fetch(
-          `${API}/courses/getCourses?page=${page}&limit=6&search=${encodeURIComponent(search)}`
+          `${API}/courses/getCourses?page=${page}&limit=${LIMIT}&search=${encodeURIComponent(search)}`
         );
 
         const data = await response.json();
